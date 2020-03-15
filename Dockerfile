@@ -1,8 +1,3 @@
 FROM openjdk:8-jdk-alpine
-ARG artifactid
-ARG version
-ENV artifact ${artifactid}-${version}.jar
-WORKDIR /app
-COPY /root/.jenkins/workspace/streams-java-ci/target/${artifact} /app
-CMD ["java -jar ${artifact}"]
-
+COPY /var/lib/jenkins/workspace/parse-data/target/streams-java-1.0-SNAPSHOT.jar streams-java.jar
+ENTRYPOINT exec java $* -jar /streams-java.jar
