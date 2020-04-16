@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'ubuntu_aws' }
     stages {
         stage('build') {
             steps {
