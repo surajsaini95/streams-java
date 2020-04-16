@@ -10,6 +10,8 @@ pipeline {
     post {
         always {
             echo 'I am Always block'
+            echo 'Cleaning workspace...'
+            deleteDir()
         }
         success {
             echo 'I am success block'
